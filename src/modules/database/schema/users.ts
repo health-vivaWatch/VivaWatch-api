@@ -13,11 +13,14 @@ export const users = pgTable('users', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
-/*
-  'SYSTEM_ADMIN', // quais propriedades especiais esse cara tem?
-  'COMPANY_ADMIN',  // quais propriedades especiais esse cara tem?
-  'COMPANY_OWNER', // quais propriedades especiais esse cara tem?
-  'CAREGIVER', // quais propiedades especiais esse cara tem?
+export const companies = pgTable('companies', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  name: text('name').notNull(),
+  slug: text('slug').notNull().unique(),
+  document: text('document').notNull().unique(),
+  billingEmail: text('billing_email').notNull(),
+  ownerId: uuid('owner_id').notNull().unique(),
 
-  Por que não ter uma tabela para cada um ? Quais os trade-offs?
-*/
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
