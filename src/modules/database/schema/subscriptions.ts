@@ -1,5 +1,9 @@
 import { decimal, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
-import { paymentMethodEnum, subscriptionPaymentStatusEnum, subscriptionStatusEnum } from './enums';
+import {
+  paymentMethodEnum,
+  subscriptionPaymentStatusEnum,
+  subscriptionStatusEnum,
+} from './enums';
 
 export const subscriptions = pgTable('subscription', {
   id: uuid('id').primaryKey().defaultRandom(),

@@ -1,5 +1,16 @@
-import { decimal, integer, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
-import { devicePairingCodeStatusEnum, deviceStatusEnum, pairingStatusEnum } from './enums';
+import {
+  decimal,
+  integer,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from 'drizzle-orm/pg-core';
+import {
+  devicePairingCodeStatusEnum,
+  deviceStatusEnum,
+  pairingStatusEnum,
+} from './enums';
 
 export const devices = pgTable('devices', {
   id: uuid('id').primaryKey().defaultRandom(),

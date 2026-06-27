@@ -1,4 +1,13 @@
-import { boolean, decimal, integer, jsonb, pgTable, text, timestamp, uuid } from 'drizzle-orm/pg-core';
+import {
+  boolean,
+  decimal,
+  integer,
+  jsonb,
+  pgTable,
+  text,
+  timestamp,
+  uuid,
+} from 'drizzle-orm/pg-core';
 import { activityLevelEnum } from './enums';
 
 export const measurements = pgTable('measurements', {
@@ -43,7 +52,9 @@ export const sleepSessions = pgTable('sleep_sessions', {
   interruptions: integer('interruptions').notNull(),
   durationMinutes: integer('duration_minutes').notNull(),
   averageBeatsPerMinute: decimal('average_beats_per_minute').notNull(),
-  averagePeriPheralOxygenSaturation: decimal('average_peripheral_saturation').notNull(),
+  averagePeriPheralOxygenSaturation: decimal(
+    'average_peripheral_saturation',
+  ).notNull(),
   averageHeartVariability: decimal('average_heart_variability').notNull(),
   patientId: uuid('patient_id').notNull(),
   deviceId: uuid('device_id').notNull(),
